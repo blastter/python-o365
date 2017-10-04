@@ -31,6 +31,7 @@ class Message(object):
           setRecipients -- sets the list of recipients.
           setSubject -- sets the subject line.
           setBody -- sets the body.
+          setHtml -- sets messages's body ContentType to HTML.
 
   Variables:
           att_url -- url for requestiong attachments. takes message GUID
@@ -209,6 +210,9 @@ class Message(object):
             to set the name properly, other wise it uses the email address up to the
             at sign for the name. But if you send a type Contact or type Group, this
             argument is completely ignored.
+    r_type -- To: to normal recipient.
+              Cc: hopying to recipient.
+              Bcc: hiden compy to recipient.
     '''
     if isinstance(address, Contact):
       self.json[r_type + 'Recipients'].append(address.getFirstEmailAddress())
